@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="nvd3-import.html">
+
+<!--
+An element providing behaviors for nvd3 charting elements.
+
+@group NVD3 Elements
+@element nvd3-behavior
+@demo demo/index.html
+-->
+
+<script>
+  var NVD3 = NVD3 || {};
+
+  NVD3.ChartBehavior = {
+    properties: {
+      /**
+       * NVD3 chart object.
+       */
+      chart: Object,
+
+      /*
+       * NVD3 Config
+       */
+      config: Object,
+
+      /*
+       * Data
+       */
+      data: Array,
+
+      /*
+       * SVG object for d3
+       */
+      svg: Object
+    },
+
+    /**
+     * Generate and attach the chart;
+     */
+    generateChart: function () {
+      var chart = this.chart;
+      var data = this.data;
+      var svg = this.svg;
+
+      nv.addGraph(function () {
+        // TODO: Implement showLabels, and other configs (base on config object)
+
+        d3.select(svg)
+          .datum(data)
+          .call(chart);
+
+        return chart;
+      });
+    }
+  };
+</script>
