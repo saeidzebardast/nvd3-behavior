@@ -7,6 +7,7 @@
   "description": "An element providing behaviors for nvd3 charting elements.",
   "keywords": [
     "web-component",
+    "web-components",
     "polymer",
     "nvd3",
     "d3",

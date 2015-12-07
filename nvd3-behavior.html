@@ -17,35 +17,51 @@ An element providing behaviors for nvd3 charting elements.
       /**
        * NVD3 chart object.
        */
-      chart: Object,
-
-      /*
-       * NVD3 Config
-       */
-      config: Object,
+      chart: {
+        type: Object
+      },
 
       /*
        * Data
        */
-      data: Array,
+      data: {
+        type: Array
+      },
 
       /*
        * SVG object for d3
        */
-      svg: Object
+      svg: {
+        type: Object
+      },
+
+      /**
+      * Show labels.
+      */
+      showLabels: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    /**
+    * Set nvd3 chart configs based on Element properties.
+    */
+    _setConfigs: function() {
+      this.chart.showLabels(this.showLabels);
     },
 
     /**
      * Generate and attach the chart;
      */
     generateChart: function () {
+      this._setConfigs();
+
       var chart = this.chart;
       var data = this.data;
       var svg = this.svg;
 
       nv.addGraph(function () {
-        // TODO: Implement showLabels, and other configs (base on config object)
-
         d3.select(svg)
           .datum(data)
           .call(chart);
