@@ -1,16 +1,20 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="nvd3-import.html">
 
-<!--
-An element providing behaviors for nvd3 charting elements.
-
-@group NVD3 Elements
-@element nvd3-behavior
-@demo demo/index.html
--->
-
 <script>
   var NVD3 = NVD3 || {};
+
+  /**
+  NVD3.ChartBehavior provides properties to create nvd3-elements charts.
+
+  @demo demo/index.html
+  @group NVD3 Elements
+  @element nvd3-behavior
+  */
+
+  /**
+   * A behavior for nvd3-elements to draw charts.
+   */
 
   NVD3.ChartBehavior = {
     properties: {
@@ -36,16 +40,16 @@ An element providing behaviors for nvd3 charting elements.
       },
 
       /**
-      * Stop auto drawing the chart on attaching the element.
-      */
+       * Stop auto drawing the chart on attaching the element.
+       */
       stopAutoDrawing: {
         type: Boolean,
         value: false
       },
 
       /**
-      * Show labels.
-      */
+       * Show labels.
+       */
       showLabels: {
         type: Boolean,
         value: false
@@ -53,8 +57,8 @@ An element providing behaviors for nvd3 charting elements.
     },
 
     /**
-    * Set nvd3 chart configs based on Element properties.
-    */
+     * Set nvd3 chart configs based on Element properties.
+     */
     _setConfigs: function() {
       this.chart.showLabels(this.showLabels);
     },
@@ -62,14 +66,14 @@ An element providing behaviors for nvd3 charting elements.
     /**
      * Generate and attach the chart;
      */
-    generateChart: function () {
+    generateChart: function() {
       this._setConfigs();
 
       var chart = this.chart;
       var data = this.data;
       var svg = this.svg;
 
-      nv.addGraph(function () {
+      nv.addGraph(function() {
         d3.select(svg)
           .datum(data)
           .call(chart);
