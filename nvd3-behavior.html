@@ -18,13 +18,6 @@
 
   NVD3.ChartBehavior = {
     properties: {
-      /**
-       * NVD3 chart object.
-       */
-      chart: {
-        type: Object
-      },
-
       /*
        * Data
        */
@@ -45,98 +38,6 @@
       stopAutoDrawing: {
         type: Boolean,
         value: false
-      },
-
-      /**
-       * Show labels.
-       */
-      showLabels: {
-        type: Boolean,
-        value: false
-      },
-
-      /**
-       * Colors to use for the different data.
-       * If an array is given, it is converted to a function automatically.
-       */
-      color: {
-        type: Array,
-        value: function() {
-          nv.utils.defaultColor();
-        }
-      },
-
-      /**
-       * List of numbers to Force into the X scale (ie. 0, or a max / min, etc.).
-       * This ensures the numbers are in the X domain but doesn't override the whole domain.
-       * This option only applies if you have not overridden the whole domain with the xDomain option.
-       */
-      forceX: {
-        type: Array,
-        value: []
-      },
-
-      /**
-       * The height the graph or component created inside the SVG should be made.
-       * Default: The height of the container element (normally the svg itself).
-       */
-      height: {
-        type: Number
-      },
-
-      /**
-       * Object containing the margins for the chart or component.
-       * You can specify only certain margins in the object to change just those parts.
-       */
-      margin: {
-        type: Object,
-        value: {
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-
-      /**
-       * Message to display if no data is provided.
-       */
-      noData: {
-        type: String,
-        value: 'No Data Available.'
-      },
-
-      /**
-       * The width the graph or component created inside the SVG should be made.
-       * Default: The width of the container element (normally the svg itself).
-       */
-      width: {
-        type: Number
-      }
-    },
-
-    /**
-     * Set nvd3 chart configs based on Element properties.
-     */
-    _setConfigs: function() {
-      /**
-      * Check if the chart has showLables function.
-      */
-      if (typeof this.chart.showLabels !== 'undefined') {
-        this.chart.showLabels(this.showLabels);
-      }
-
-      this.chart.color(this.color);
-      this.chart.forceX(this.forceX);
-      this.chart.margin(this.margin);
-      this.chart.noData(this.noData);
-
-      if (typeof this.height === 'number' && this.height > 0) {
-        this.chart.height(this.height);
-      }
-
-      if (typeof this.width === 'number' && this.width > 0) {
-        this.chart.width(this.width);
       }
     },
 
@@ -144,8 +45,6 @@
      * Generate and attach the chart;
      */
     generateChart: function() {
-      this._setConfigs();
-
       var chart = this.chart;
       var data = this.data;
       var svg = this.svg;
