@@ -1,4 +1,4 @@
-# nvd3-behavior
+# nvd3-behavior [![Build Status](https://travis-ci.org/saeidzebardast/nvd3-behavior.svg?branch=master)](https://travis-ci.org/saeidzebardast/nvd3-behavior)
 
 A polymer behavior for [nvd3 charting elements](https://github.com/saeidzebardast/nvd3-elements).
 
