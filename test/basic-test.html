@@ -27,10 +27,24 @@
         myEl = fixture('simple-chart-fixture');
       });
 
-      test('can be stopAutoDrawing', function() {
+      test('stopAutoDrawing is false by default', function() {
+        assert.isFalse(myEl.autoResize);
+      });
+
+      test('set stopAutoDrawing true', function() {
         assert.isFalse(myEl.stopAutoDrawing);
         myEl.stopAutoDrawing = true;
         assert.isTrue(myEl.stopAutoDrawing);
+      });
+
+      test('autoResize is false by default', function() {
+        assert.isFalse(myEl.autoResize);
+      });
+
+      test('set autoResize true', function() {
+        assert.isFalse(myEl.autoResize);
+        myEl.autoResize = true;
+        assert.isTrue(myEl.autoResize);
       });
     });
   </script>
